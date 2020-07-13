@@ -15,16 +15,16 @@
 </head>
 
 <body>
+
+  <!-- Main container -->
   <div class="main_wrapper">
 
-
-
-     <div class="absolute"> Main-container si compone di 3 sezioni! E' un elemento FLEX COLUMN. width 100vw e height 100vh
-     </div>
-
+     <!-- Side Nav - section with User info and personal contact list -->
      <aside id="side_nav">
-       <div id="user_bar" class="centratura">
-         <div id="user_info">
+
+      <!-- Side Nav - section with User info -->
+       <div id="user_bar" >
+         <div id="user_info" class="centratura">
            <img class="img_user" src="img/Guy2.png" alt="Guy">
            <div class="icons">
              <i class='fas fa-circle-notch'></i>
@@ -32,20 +32,20 @@
              <i class='fa fa-ellipsis-v'></i>
             </div>
          </div>
-         <div id="user_src_contact" >
+         <div id="user_src_contact" class="centratura" >
            <div class="input_bar">
              <i class='fas fa-search'></i>
              <input type="text" name="" placeholder="Crea o inizia una nuova chat" value="">
            </div>
          </div>
-
-      </div>
+       </div>
+      <!-- Side Nav - section with contact list -->
        <div id="user_contacts">
          <div class="overflow">
            <div class="overflow-content">
              <div class="contact_list centratura">
                <div class="contact_icon">
-                 <img class="img_contact" src="img/lechuck.png" alt="">
+                 <img class="img_contact" src="img/stan2.png" alt="stan">
                </div>
                <div class="contact_name">
                  <h3 class="name">Michele</h3>
@@ -55,7 +55,7 @@
              </div>
              <div class="contact_list centratura">
                <div class="contact_icon">
-                 <img class="img_contact" src="img/lechuck.png" alt="">
+                 <img class="img_contact" src="img/vodooLady2.png" alt="Vodoo">
                </div>
                <div class="contact_name">
                  <h3 class="name">Michele</h3>
@@ -98,19 +98,26 @@
        </div>
      </aside>
 
-    <div id="main_message_section" class="main-container">
-      <header id="chat_selected_contact" class="">
-        <div class="">
+     <!-- Main section - bar with INFO about contact -->
 
-        </div>
-        <div class="">
+    <div id="main_message_section" class="main-container">
+      <header id="chat_selected_contact" class="centratura">
+        <div class="contact_list">
+          <div class="contact_icon">
+            <img class="img_user" src="img/lechuck.png" alt="">
+          </div>
+          <div class="contact_name">
+            <h3 class="name">Michele</h3>
+            <p>Non potessa essere altrimenti</p>
+          </div>
+        <div class="icons">
           <i class='fas fa-search'></i>
           <i class='fas fa-paperclip'></i>
           <i class='fa fa-ellipsis-v'></i>
         </div>
 
       </header>
-      <main id="chat_messages" class= "">
+      <main id="chat_messages" class= "centratura">
         <div class="overflow">
           <div class="overflow-content">
             <h2>- SEZIONE02 -</h2>

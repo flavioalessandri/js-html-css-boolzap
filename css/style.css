@@ -21,6 +21,11 @@ body{
   padding:0 20px;
 }
 
+.icons{
+  display: flex;
+  width:80px;
+  justify-content: space-between;
+}
 
 h1,h2 {
   padding-bottom: 10px;
@@ -70,14 +75,12 @@ aside#side_nav{
   flex-direction: column;
   width:30%;
   height:100vh;
-  background-color: green;
+  /* background-color: green; */
 }
 
 aside #user_bar{
-  padding-top: 5px;
   width:100%;
-  height: 100px;
-  background-color: rgb(234,234,234);
+  height: 140px;
 }
 
 aside #user_info{
@@ -85,7 +88,8 @@ aside #user_info{
   justify-content: space-between;
   align-items: center;
   width:100%;
-  height: 40px;
+  height: 80px;
+  background-color: rgb(234,234,234);
 }
 
 aside #user_src_contact{
@@ -94,6 +98,7 @@ aside #user_src_contact{
   align-items: center;
   width:100%;
   height: 60px;
+  background-color: rgb(247, 246, 242);
 }
 
 aside #user_src_contact .input_bar{
@@ -108,6 +113,7 @@ aside #user_src_contact .input_bar{
 
 
 aside #user_src_contact input{
+  padding-left: 10px;
   width: 90%;
   border:none;
   background-color: none;
@@ -124,13 +130,18 @@ aside #user_contacts{
   background-color:white;
 }
 
-aside #user_contacts .contact_list{
+.contact_list{
   display: flex;
   justify-content: space-between;
   align-items: center;
   width:100%;
   height: 80px;
-  border:1px solid black;
+  /* border:1px solid black; */
+}
+
+.contact_list .contact_name{
+  flex-grow: 1;
+  padding-left: 20px;
 }
 
 
@@ -145,30 +156,26 @@ aside #user_contacts .contact_list{
 
 /* PRIMO E ULTIMO ITEM DEL FLEX "main-sezione-2" parte che non vogliamo far scrollare */
 #chat_selected_contact{
-  color: white;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   width:100%;
-  min-height: 100px;
+  min-height: 80px;
   font-weight: bold;
-  background-color: #720026;
+  background-color: rgb(234,234,234);
 }
+
 
 /* SECONDO ITEM DEL FLEX "main-sezione-2" parte che non vogliamo far scrollare */
 #chat_messages{
   display: flex;
   flex-direction: row;
-
   flex-grow: 1; /*L'ITEM prenderà tutta la larghezza disponibile rispetto al suo contenitore Flex */
   min-height: 0; /*altezza minima dell'ITEM del contenitore flex main-sezione-2 */
-  background-color:yellow;
 }
 
 .overflow{
   overflow-y: scroll; /*L'ITEM scrollerà verticalmente */
   flex-grow: 1; /*L'ITEM prenderà tutta la larghezza disponibile rispetto al suo contenitore Flex */
-  -ms-overflow-style: none;  /* IE and Edge */
+  -ms-overflow-style: none;
   scrollbar-width: none;  /* Firefox */
 }
 
@@ -180,7 +187,7 @@ aside #user_contacts .contact_list{
 .overflow-content{
   line-height: 30px;
   color:  black;
-  background-color: #f2f5de;
+  /* background-color: #f2f5de; */
 }
 
 #chat_input{
@@ -190,8 +197,7 @@ aside #user_contacts .contact_list{
   width:100%;
   min-height: 100px;
   font-weight: bold;
-  background-color: #ce4257;
-  color:white;
+  background-color: rgb(234,234,234);
 }
 
 footer input{
