@@ -22,9 +22,9 @@
      <!-- Side Nav - section with User info and personal contact list -->
      <aside id="side_nav">
 
-      <!-- Side Nav - section with User info -->
+      <!-- Side Nav - First section with User info -->
        <div id="user_bar" >
-         <div id="user_info" class="centratura">
+         <div id="user_profile" class="centratura">
            <img class="img_user" src="img/Guy2.png" alt="Guy">
            <div class="icons">
              <i class='fas fa-circle-notch'></i>
@@ -33,16 +33,19 @@
             </div>
          </div>
          <div id="user_src_contact" class="centratura" >
-           <div class="input_bar">
+            <!-- input to find contact -->
+           <div class="src_bar">
              <i class='fas fa-search'></i>
-             <input type="text" name="" placeholder="Crea o inizia una nuova chat" value="">
+             <input id="input_src" type="text" name="" placeholder="Crea o inizia una nuova chat" value="">
            </div>
          </div>
        </div>
       <!-- Side Nav - section with contact list -->
-       <div id="user_contacts">
+       <div id="contacts">
          <div class="overflow">
            <div class="overflow-content">
+
+             <!-- User Contact - Icon Name and Subtitle -->
              <div class="contact_list centratura">
                <div class="contact_icon">
                  <img class="img_contact" src="img/stan2.png" alt="stan">
@@ -51,8 +54,9 @@
                  <h3 class="name">Stan</h3>
                  <p class="subtitle">Non potessa essere altrimenti</p>
                </div>
-
              </div>
+
+             <!-- User Contact - Icon Name and Subtitle -->
              <div class="contact_list centratura">
                <div class="contact_icon">
                  <img class="img_contact" src="img/vodooLady2.png" alt="Vodoo">
@@ -61,8 +65,9 @@
                  <h3 class="name">Vodoo Lady</h3>
                  <p class="subtitle">Non potessa essere altrimenti</p>
                </div>
-
              </div>
+
+             <!-- User Contact - Icon Name and Subtitle -->
              <div class="contact_list centratura">
                <div class="contact_icon">
                  <img class="img_contact" src="img/lechuck.png" alt="lechuck">
@@ -71,8 +76,9 @@
                  <h3 class="name">LeChuck</h3>
                  <p class="subtitle">Non potessa essere altrimenti</p>
                </div>
-
              </div>
+
+             <!-- User Contact - Icon Name and Subtitle -->
              <div class="contact_list centratura">
                <div class="contact_icon">
                  <img class="img_contact" src="img/elaine2.png" alt="elaine">
@@ -81,8 +87,9 @@
                  <h3 class="name">Elaine</h3>
                  <p class="subtitle">Non potessa essere altrimenti</p>
                </div>
-
              </div>
+
+             <!-- User Contact - Icon Name and Subtitle -->
              <div class="contact_list centratura">
                <div class="contact_icon">
                  <img class="img_contact" src="img/lechuck.png" alt="lechuck">
@@ -91,16 +98,18 @@
                  <h3 class="name">Michele</h3>
                  <p class="subtitle">Non potessa essere altrimenti</p>
                </div>
-
              </div>
-           </div>
-         </div>
-       </div>
+
+           </div> <!-- End of overflow-content -->
+         </div>  <!-- End of overflow -->
+       </div>  <!-- End of contacts -->
      </aside>
 
-     <!-- Main section - bar with INFO about contact -->
 
+     <!-- Main section - bar with INFO about contact -->
     <div id="main_message_section" class="main-container">
+
+      <!-- First flex container Item - no scroll-->
       <header id="chat_selected_contact" class="centratura">
         <div class="contact_list">
           <div class="contact_icon">
@@ -110,14 +119,17 @@
             <h3 class="name">LeChuck</h3>
             <p class="subtitle">Non potessa essere altrimenti</p>
           </div>
-        <div class="icons">
-          <i class='fas fa-search'></i>
-          <i class='fas fa-paperclip'></i>
-          <i class='fa fa-ellipsis-v'></i>
+          <div class="icons">
+            <i class='fas fa-search'></i>
+            <i class='fas fa-paperclip'></i>
+            <i class='fa fa-ellipsis-v'></i>
+          </div>
         </div>
-
       </header>
+
+      <!-- Second flex container Item - no scroll-->
       <main id="chat_messages" class= "centratura">
+        <!-- Section container need to scroll! -->
         <div class="overflow">
           <div class="overflow-content">
             <p class="my_green">CIao Come stai</p>
