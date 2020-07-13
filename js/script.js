@@ -1,47 +1,27 @@
 console.log("Carella esempi!");
 
-function nuovokeydown(){
-  var user = $('.user');
-  user.keydown(function(event){
+function inputKeyup(){
+  var input = $('#sendMessage');
+  input.keyup(function(event){
+  if(event.which == 13){
   var txt = $(this).val();
   console.log("testo",txt);
   console.log("tasto corrispondente", event.which);
-  })
+  var template= $('.template').append('<p class="my_green">' + txt + '</p>')
+  var my_chat = $('.template').children().last();
+  if (my_chat.hasClass('my_green')==true){
+      $('#chat_messages .overflow-content').append(my_chat.clone());
+  }
+  var empty_txt = $(this).val('');
+  console.log(my_chat);
+  }
+});
 }
-
-function myButton(){
-var button = $('.button');
-button.click(function(){
-  var messaggio = $('.user').val();
-  var nascosto = $('.template').append("<h3>" + messaggio + "</h3>");
-  var copy = nascosto.children().clone();
-  $('#target').append(copy);
-  // messaggio.remove();
-  // var copia = messaggio.clone().append('.copy');
-  // messaggio.remove();
-
-  // console.log("valore input" , txta);
-  // // var messaggio = txta.clone();
-  // $('.clone').append(txta);
-  // $( "b" ).clone().prependTo( "h5" );
-  // $( "b" ).appendTo( "h6" );
-})
-
-var scritta = $(".template > h3");
-$('#target').append(scritta);
-}
-
 
 
 function init(){
   console.log("INIT");
-
-  nuovokeydown();
-
-  myButton();
-
-
-
+  inputKeyup();
 }
 
 $(document).ready(init);
