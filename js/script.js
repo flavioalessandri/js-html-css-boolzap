@@ -5,6 +5,27 @@ function sendMessageFunction(){
   input.keyup(automaticReply);
 }
 
+function sortContactsFunction(){
+  var input= $('#input_src');
+  console.log(input.val());
+  input.keyup(sortByLetters);
+}
+
+function sortByLetters(){
+  var input = $(this);
+  var searchCont = $(this).val(); //user input
+  var target = $('#contacts .contact_list_wrapper .contact_name .name');
+  console.log("i target sono i nomi : ", target);
+  target.each(function(){ //loop through the list
+      if($(this).text().toLowerCase().match(searchCont)){ //check if list item contains the typed letters
+          $(this).closest('.contact_list_wrapper').show();
+      }else{
+          $(this).closest('.contact_list_wrapper').hide();
+      }
+  });
+
+}
+
 function valueFromInput(event){
   var key = event.which;
   console.log("Codice tasto", event.which);
@@ -45,7 +66,6 @@ function myMessage(txt){
   target.append(template);
 }
 
-
 function getNewTime(){
   var data = new Date();
   return data.getHours() + ":" + data.getMinutes();
@@ -66,11 +86,13 @@ function automaticReply(event){
 }
 
 
+
 // Container used to invocate the functions---------------
 function init(){
   console.log("Container used to invocate the functions");
 
   sendMessageFunction();
+  sortContactsFunction();
 }
 
 $(document).ready(init);
