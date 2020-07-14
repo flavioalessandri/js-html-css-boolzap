@@ -148,25 +148,104 @@
       <main id="chat_messages" class= "centratura">
         <!-- Section container need to scroll! -->
         <div class="overflow">
-          <div class="overflow-content">
-            <p class="my_green">CIao Come stai</p>
-            <p class="you_white">Tutto bene grazie</p>
-          </div>
-        </div>
+          <div id="chat_board" class="overflow-content">
+
+            <!-- MESSAGE FROM CONTACT -->
+            <div class="bubble left_msg">
+              <div class="dropdown_parent">
+                <span class="content">
+                  Contatto
+                </span>
+                <div class="date">11:30 </div>
+                <i class="fas fa-chevron-down"></i>
+                <!-- DropDown Menu -->
+                <div class="dropdown hidden">
+                  <div class="delete"> Cancella Messaggio </div>
+                  <div class="modify"> Modifica Messaggio </div>
+               </div>
+              </div>
+            </div>
+
+
+            <!-- MY MESSAGE  -->
+            <div class="bubble right_msg">
+              <div class="dropdown_parent">
+                <span class="content">
+                  Ciao ragazzi, sono stato molto bene
+                </span>
+                <div class="date">11:30 </div>
+                <i class="fas fa-chevron-down"></i>
+                <!-- DropDown Menu -->
+                <div class="dropdown hidden">
+                  <div class="delete"> Cancella Messaggio </div>
+                  <div class="modify"> Modifica Messaggio </div>
+               </div>
+              </div>
+            </div>
+
+            <!-- MY MESSAGE  -->
+            <!-- <div id="right_msg"class="bubble right_msg">
+
+            </div> -->
+
+          </div><!-- End of overflow-content -->
+        </div><!-- End of overflow-->
       </main>
+
       <footer id="chat_input" class="centratura">
         <i class="far fa-grin"></i>
         <input id="sendMessage" type="text" name="" placeholder="Scrivi un messaggio" value="">
         <i class='fas fa-microphone'></i>
       </footer>
-      <div class="template" style="display:none">
 
-
-      </div>
 
     </div>
     <script type="text/javascript" src="js/script.js"></script>
   </div>
+
+
+  <!-- TEMPLATE Section (hidden) used to style our JS items -->
+
+  <!-- MESSAGE FROM CONTACT -->
+  <div id="message_received" class="template" style="display:none">
+
+    <div class="bubble left_msg">
+      <div class="dropdown_parent">
+        <span id="content" class="content">
+          messaggi Contatto
+        </span>
+        <div id="date" class="date">11:30 </div>
+        <i class="fas fa-chevron-down"></i>
+        <!-- DropDown Menu -->
+        <div class="dropdown hidden">
+          <div class="delete"> Cancella Messaggio </div>
+          <div class="modify"> Modifica Messaggio </div>
+       </div>
+      </div>
+    </div>
+  </div> <!-- end of Template section -->
+
+  <!-- MY MESSAGE  -->
+  <div id="message_sent" class="template" style="display:none">
+
+    <div class="bubble right_msg">
+      <div class="dropdown_parent">
+        <span id="content" class="content">
+          Miei messaggi
+        </span>
+        <div id="date" class="date">11:30 </div>
+        <i class="fas fa-chevron-down"></i>
+        <!-- DropDown Menu -->
+        <div class="dropdown hidden">
+          <div class="delete"> Cancella Messaggio </div>
+          <div class="modify"> Modifica Messaggio </div>
+       </div>
+      </div>
+    </div>
+
+
+  </div> <!-- end of Template section -->
+
 </body>
 
 </html>

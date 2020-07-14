@@ -44,19 +44,24 @@ h1,h2 {
 
 /* Icons Images Dimensions */
 .img_user{
-  width:50px;
   border-radius: 50%;
+
+  width:50px;
+
   background-color: #a8dadc;
 }
 
 .img_contact{
-  width:60px;
   border-radius: 50%;
+
+  width:60px;
+
   background-color: #a8dadc;
 }
 
 .main_wrapper{
   display: flex;
+
   width:100vw;
   height: 100vh;
 }
@@ -65,9 +70,11 @@ h1,h2 {
 aside#side_nav{
   display: flex;
   flex-direction: column;
+
   width:30%;
   min-width: 330px;
   height:100vh;
+
   border-right: 1px solid rgb(234,234,234);
 }
 
@@ -80,8 +87,10 @@ aside #user_profile{
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width:100%;
   height: 80px;
+
   background-color: rgb(234,234,234);
 }
 
@@ -89,8 +98,10 @@ aside #user_src_contact{
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width:100%;
   height: 60px;
+
   background-color: rgb(247, 246, 242);
 }
 
@@ -98,15 +109,20 @@ aside #user_src_contact .src_bar{
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  width:100%;
   height: 30px;
+
   border-radius: 20px;
   background-color: white;
-  width:100%;
+
 }
 
 aside #user_src_contact input{
   padding-left: 10px;
+
   width: 90%;
+
   border:none;
   background-color: none;
 }
@@ -125,9 +141,9 @@ aside #contacts{
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width:100%;
   height: 80px;
-  /* border:1px solid black; */
 }
 
 .contact_list span{
@@ -137,11 +153,8 @@ aside #contacts{
   color:lightgrey;
 }
 
-
-
 #contacts .contact_list{
   border-bottom: 1px solid rgb(234,234,234);
-
 }
 
 .contact_list .contact_name{
@@ -153,15 +166,18 @@ aside #contacts{
 .main-container{
   display: flex;
   flex-direction: column;
+
   width:70%;
   height: 100vh;
 }
 
 /* PRIMO ITEM DEL CONTAINER FLEX  parte che non vogliamo far scrollare */
 #chat_selected_contact{
+  font-weight: bold;
+
   width:100%;
   min-height: 80px;
-  font-weight: bold;
+
   background-color: rgb(234,234,234);
 }
 
@@ -186,21 +202,23 @@ aside #contacts{
 }
 
 .overflow-content{
-  padding-top: 20px;
-  line-height: 30px;
-  color:  black;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* background-color: #f2f5de; */
+
+  padding-top: 20px;
+  line-height: 20px;
+  color: black;
 }
 
 #chat_input{
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width:100%;
   min-height: 80px;
+
   font-weight: bold;
   background-color: rgb(234,234,234);
 }
@@ -208,9 +226,11 @@ aside #contacts{
 /* Footer section ----------------------------------------*/
 footer input{
   padding-left: 20px;
+
   width:90%;
-  border:none;
   height:40px;
+
+  border:none;
   border-radius: 16px;
 }
 
@@ -222,27 +242,86 @@ footer .far , footer .fas, footer .fa{
   color: black;
 }
 
-.my_green{
+/* Chat Message TEMPLATE STYLE */
+
+
+.bubble .dropdown_parent{
+  position: relative;
+  max-width: 100%;
+  padding:10px 20px;
+  height:100%;
+  min-height: 70px;
+}
+
+.bubble.right_msg{
   margin-top: 15px;
   text-align: left;
   align-self: flex-end;
+
   max-width: 40%;
   background-color: lightgreen;
-  padding:15px;
+
   border-radius: 15px;
 }
 
-.you_white{
-  margin-top: 15px;
+.bubble.left_msg{
   align-self: flex-start;
   text-align: left;
+
   max-width: 40%;
-  background-color: grey;
-  padding:15px;
+
   border-radius: 15px;
-  }
+  background-color: grey;
+  margin-top: 15px;
+}
+
+.bubble .content{
+  width:70%;
+  line-height: 20px;
+  padding-bottom: 10px;
+  float: left;
+  background-color: yellow;
+}
+
+.bubble .date{
+  text-align: right;
+  line-height: 20px;
+  padding-left:6px;
+  font-size: 12px;
+  float: left;
+  width:25%;
+}
+
+.bubble .fa-chevron-down{
+  position: absolute;
+  bottom:0px;
+  right:10px;
+  z-index: 100;
+}
+
+.bubble .dropdown{
+  width:100%;
+  white-space: nowrap;
+  padding:10px;
+  position: absolute;
+  top:70%;
+  left:0;
+  background-color: lightgrey;
+}
+
+.hidden{
+  display:none;
+}
+
+
 
 .subtitle{
   font-size: 14px;
   color: grey;
+}
+
+/* ------hover------------ */
+
+.dropdown_parent:hover{
+  cursor: pointer;
 }

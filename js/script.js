@@ -1,21 +1,44 @@
-console.log("Starting log");
-
-function inputKeyup(){
+function sendMessageFunction(){
   var input = $('#sendMessage');
-  input.keyup(function(event){
-  if(event.which == 13){ //trigger the function when ENTER is keyup
-  var txt = $(this).val();
+  input.keyup(valueFromInput);
+}
 
-  console.log("tasto ENTER corrisponde al numero ", event.which);
-  var template= $('.template').append('<p class="my_green">' + txt + '</p>')
-  var my_chat = $('.template').children().last();
-  if (my_chat.hasClass('my_green')==true){
-      $('#chat_messages .overflow-content').append(my_chat.clone());
+function valueFromInput(event){
+  var key = event.which;
+  console.log("Codice tasto", event.which);
+
+  if(event.which == 13){ //trigger the function when ENTER is keyup
+
+  var input = $(this);// this si riferisce a $('#sendMessage'). elemento su cui si scatena evento
+  var txt = input.val(); //get the input value
+  console.log("la parola è:" , txt);
+
+  input.val('');
+  myMessage(txt);
   }
-  var empty_txt = $(this).val(''); //clean input value
-  console.log("la mia chat", my_chat);
-  }
-});
+}
+
+function myMessage(txt){
+  console.log(txt, "log txt");
+  var template=$('#message_sent > div').clone();
+  var target = $('#chat_board');
+
+  console.log("template",template);
+  console.log("myMessage", txt);
+
+
+
+  template.find('.content').text(txt);
+  template.find('#date').text(getNewTime());
+
+  target.append(template);
+}
+
+
+function getNewTime(){
+  var data = new Date();
+  return data.getHours() + ":" + data.getMinutes();
+  console.log(data);
 }
 
 function upperCaseKeydown(){
@@ -26,26 +49,21 @@ function upperCaseKeydown(){
     txt.toUpperCase();
     console.log(txt);
   }
-});
+})
 }
 
 
-
-function consoleLogKeyup(){
-  var input = $('#sendMessage');
-  input.keyup(function(event){
-  var txt = $(this).val();
-  console.log("Typed Word:",txt);
-  console.log("Typed Key: ", event.which);
-});
-}
 
 // Container used to invocate the functions---------------
 function init(){
   console.log("Container used to invocate the functions");
-  inputKeyup();
-  consoleLogKeyup();
-  upperCaseKeydown();
+
+  sendMessageFunction();
+  // valueFromInput();
+  // newInputKeyUp();
+  // inputKeyup();
+  // consoleLogKeyup();
+  // upperCaseKeydown();
 }
 
 $(document).ready(init);
