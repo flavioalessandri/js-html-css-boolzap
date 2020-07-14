@@ -118,6 +118,10 @@ aside #user_src_contact .src_bar{
 
 }
 
+aside #user_src_contact .src_bar > i{
+  padding-left: 10px;
+}
+
 aside #user_src_contact input{
   padding-left: 10px;
 
@@ -271,7 +275,7 @@ footer .far , footer .fas, footer .fa{
   max-width: 40%;
 
   border-radius: 15px;
-  background-color: grey;
+  background-color: rgb(247, 246, 242);
   margin-top: 15px;
 }
 
@@ -280,7 +284,7 @@ footer .far , footer .fas, footer .fa{
   line-height: 20px;
   padding-bottom: 10px;
   float: left;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 
 .bubble .date{
@@ -322,6 +326,11 @@ footer .far , footer .fas, footer .fa{
 
 /* ------hover------------ */
 
-.dropdown_parent:hover{
+.dropdown_parent:hover, .contact_list_wrapper:hover{
+  cursor: pointer;
+}
+
+i:hover{
+  color:black;
   cursor: pointer;
 }
