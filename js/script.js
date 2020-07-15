@@ -4,7 +4,6 @@ function sendMessageFunction(){
   var input = $('#sendMessage');
   input.keyup(valueFromInput); //get a value from input after press "ENTER"
   input.keydown(upperCaseKeydown); //trigger SHIFT keydown to type Uppercase letters
-  input.keyup(automaticReply); // get an automatic reply 1 second after press "ENTER"
 }
 
 // SendMessage -\- valueFromInput----------
@@ -19,29 +18,36 @@ function valueFromInput(event){ //this function need the event object
   console.log("la parola è:" , txt); // if txt is empty no message will be sent
 
   input.val(''); //clean the value in the input space
-  myMessage(txt); //invoke a new function NOT ANONYMOUS
+
+  // Once getting input value we need to Send our message and receive an automatic automatic Reply
+
+  // "sendNewMessage function" needs two arguments (the input-text-value and the tag-class for the style)
+  sendNewMessage(txt,'right_msg'); //invoke a new function NOT ANONYMOUS
+
+  // Now we need an automatic reply - call setTimeout with anonymous funcion;
+  // setTimeout(function(){ sendNewMessage('Va benissimo', 'left_msg');},2000);
+  setTimeout(sendNewMessage('Va benissimo', 'left_msg'),2000);
   }
 }
 
-// SendMessage -\- -valueFromInput-\--myMessage---------
-function myMessage(txt){
-  console.log(txt, "log txt");
-  var template=$('#message_sent > div').clone(); //get the CLONE of the DIV under TEMPLATE (hidden folder)
+// SendMessage -\- -valueFromInput-\--sendNewMessage---------
+function sendNewMessage(txt, type){
+
+  var template=$('#messages_structure > div').clone(); //get the CLONE of the DIV under TEMPLATE (hidden folder)
   // when we use clone() we can modify the element copy without touch the original
   var target = $('#chat_board');
 
-  console.log("template",template);
-  console.log("myMessage", txt);
+  console.log("type",type);
+  console.log("sendNewMessage", txt);
 
   // The .find() and .children() methods are similar, but children only travels a single level down the DOM tree
-
+  template.addClass(type);
   template.find('.content').text(txt);//search the element with class "content" overwriting the text
   template.find('#date').text(getNewTime()); //search the element with class "date" overwriting the text  with the current date
-
   target.append(template);
 }
 
-// SendMessage -\--valueFromInput-\--myMessage-\--getNewTime-----
+// SendMessage -\--valueFromInput-\--sendNewMessage-\--getNewTime-----
 function getNewTime(){
   var data = new Date();
   return data.getHours() + ":" + data.getMinutes();
@@ -55,22 +61,6 @@ function upperCaseKeydown(event){
     txt.toUpperCase();
     console.log(txt);
   }
-}
-
-// SendMessage -\- automaticReply----------
-function automaticReply(event){
-  console.log("automatic Reply dopo 1 sec");
-  var template = $('#message_received > div').clone();
-  var target = $('#chat_board');
-  var key = event.which;
-  var input = $(this);
-  var reply = setTimeout(function(){
-    if (key == 13){
-      template.find('.content').html("Combatti come una mucca!");
-      template.find('.date').html(getNewTime());
-      target.append(template);
-    }
-  },1000);
 }
 
 // --------------------------------------------------------------
@@ -97,7 +87,6 @@ function sortByLetters(){
   });
 }
 
-
 // 2) MAIN Container used to invocate the functions---------------
 function init(){
   console.log("Container used to invocate the functions");
@@ -105,7 +94,6 @@ function init(){
   sendMessageFunction(); //function to Send Message and receive a reply
   sortContactsFunction(); //function to sort Contact from the sidenav
 }
-
 
 // 1) Document Ready-----
 $(document).ready(init);
