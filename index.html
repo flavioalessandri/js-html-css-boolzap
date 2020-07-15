@@ -25,7 +25,7 @@
       <!-- Side Nav - First section with User info -->
        <div id="user_bar" >
          <div id="user_profile" class="centratura">
-           <img class="img_user" src="img/Guy2.png" alt="Guy">
+           <img class="img_contact" src="img/Guy2.png" alt="Guy">
            <div class="icons">
              <i class='fas fa-circle-notch'></i>
              <i class="far fa-comment-alt"></i>
@@ -74,7 +74,7 @@
              </div>
 
               <!-- User Contact - Icon Name and Subtitle -->
-             <div class="contact_list_wrapper">
+             <div class="contact_list_wrapper active" data-info="LeChuck">
                <div class="contact_list centratura">
                  <div class="contact_icon">
                    <img class="img_contact" src="img/lechuck.png" alt="lechuck">
@@ -169,8 +169,8 @@
       <!-- First flex container Item - no scroll-->
       <header id="chat_selected_contact" class="centratura">
         <div class="contact_list">
-          <div class="contact_icon">
-            <img class="img_user" src="img/lechuck.png" alt="">
+          <div class="contact_icon active">
+            <img class="img_contact" src="img/lechuck.png" alt="">
           </div>
           <div class="contact_name active">
             <h3 class="name">LeChuck</h3>
@@ -189,7 +189,6 @@
         <!-- Section container need to scroll! -->
         <div class="overflow">
           <div id="chat_board" class="overflow-content">
-
             <!-- MESSAGE FROM CONTACT -->
             <div class="bubble left_msg">
               <div class="dropdown_parent">
@@ -205,8 +204,6 @@
                </div>
               </div>
             </div>
-
-
             <!-- MY MESSAGE  -->
             <div class="bubble right_msg">
               <div class="dropdown_parent">
@@ -222,11 +219,23 @@
                </div>
               </div>
             </div>
+<!--
+            <div class="chat_board_section">
+              <div class="overflow-content">
+                <span>sa</span>
+                <span>sa</span>
+                <span>sa</span>
+               </div>
+            </div>
 
-            <!-- MY MESSAGE  -->
-            <!-- <div id="right_msg"class="bubble right_msg">
-
+            <div class="chat_board_section">
+              <div class="overflow-content">
+                <span>sa</span>
+                <span>sa</span>
+                <span>sa</span>
+               </div>
             </div> -->
+
 
           </div><!-- End of overflow-content -->
         </div><!-- End of overflow-->

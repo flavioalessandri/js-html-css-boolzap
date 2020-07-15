@@ -23,7 +23,7 @@ body{
 
 .far , .fas, .fa{
   color: rgb(172, 171, 172);
-  font-style: 20px;
+  font-size: 18px;
 }
 
 .centratura{
@@ -39,11 +39,12 @@ body{
 h1,h2 {
   padding-bottom: 10px;
   font-weight: 400;
-  font-style: 16px;
+  font-size: 16px;
 }
 
 /* Icons Images Dimensions */
-.img_user{
+#user_profile .img_contact,
+header .img_contact{
   border-radius: 50%;
 
   width:50px;
@@ -128,7 +129,7 @@ aside #user_src_contact input{
   width: 90%;
 
   border:none;
-  background-color: none;
+  background-color: white;
 }
 
 aside #contacts{
@@ -226,6 +227,24 @@ aside #contacts{
   font-weight: bold;
   background-color: rgb(234,234,234);
 }
+
+.contact_list_wrapper.active{
+  background-color: lightgreen;
+}
+
+/* #chat_board > div:nth-of-type(4){
+  color: red;
+  min-height: 80px;
+  border: 1px solid red;
+}
+
+#chat_board  .chat_board_section{
+  color: blue;
+  min-height: 80px;
+  border: 1px solid black;
+} */
+
+
 
 /* Footer section ----------------------------------------*/
 footer input{
