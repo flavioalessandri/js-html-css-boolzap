@@ -1,7 +1,25 @@
+
+function addListenerMessage(){
+  $('#chat_messages').on('click','.dropdown_parent > i', function(){
+    $(this).siblings('.dropdown').toggle('hidden');
+    console.log("PROVA");
+  })
+}
+
+function deleteMessage(){
+  $('#chat_messages').on('click','.dropdown .delete', function(){
+    $(this).parents('.bubble').remove();
+    console.log("PROVA");
+  })
+
+}
+
+
+
 function viewContactMessage(){
   var sidebar_contact_list = $('.contact_list_wrapper');
 
-  sidebar_contact_list.on("click",function() {
+  sidebar_contact_list.click(function() {
 
     sidebar_contact_list.removeClass('active');
     $(this).addClass('active');
@@ -29,6 +47,8 @@ function viewContactMessage(){
     var selected_contact_img = $("#chat_selected_contact").find('.img_contact').attr('src', icon);
 
   })
+
+
 }
 
 // --------------------------------------------------------------
@@ -134,6 +154,9 @@ function init(){
 
   viewContactMessage();
 
+  addListenerMessage();
+
+  deleteMessage();
 }
 
 // 1) Document Ready-----
