@@ -1,19 +1,17 @@
 
-function addListenerMessage(){
+function selectChatMessage(){
   $('#chat_messages').on('click','.dropdown_parent > i', function(){
     $(this).siblings('.dropdown').toggle('hidden');
     console.log("PROVA");
   })
 }
 
-function deleteMessage(){
+function deleteChatMessage(){
   $('#chat_messages').on('click','.dropdown .delete', function(){
     $(this).parents('.bubble').remove();
     console.log("PROVA");
   })
-
 }
-
 
 
 function viewContactMessage(){
@@ -25,10 +23,12 @@ function viewContactMessage(){
     $(this).addClass('active');
 
     // find Icon name and Contact name of the item selected
+    var name = $(this).find('.name').text();
     var keyName = $(this).find('.name').text().toLowerCase();
     var icon = $(this).find('.img_contact').attr('src');
 
     //MESSAGE BUBBLE SECTION
+
     var id = $(this).attr('data-id');
     var general_chat = $('#chat_messages .chat_personal');
     general_chat.removeClass('active');
@@ -39,16 +39,13 @@ function viewContactMessage(){
     // assegna un "data-info" al contatto selezionato nella SideBar
     //SIDEBAR SECTION - Assign a "data-info: name value" to the selected contact_list_wrapper item
     $(this).attr('data-info', keyName );//dataset.info
-    console.log("l'elemento nella barra laterale ha come data-info il nome : ", keyName);
+    console.log("l'elemento nella barra laterale ha come data-info il nome : ", keyName,"e come data-id: ",id);
 
     // cambia l'immagine e il nome nella barra in alto delle info contatto
     // TOPBAR SECTION - CHANGE the Top Main Section "Icon and Name" of  with the selected item
     var selected_contact_name = $("#chat_selected_contact").find('.name').text(name);
     var selected_contact_img = $("#chat_selected_contact").find('.img_contact').attr('src', icon);
-
   })
-
-
 }
 
 // --------------------------------------------------------------
@@ -67,21 +64,21 @@ function valueFromInput(event){ //this function need the event object
   var input = $(this);// (this) si riferisce a $('#sendMessage'). elemento su cui si scatena evento
   var txt = input.val(); //get the input value
 
-  if(key == 13 && txt){ //trigger the function when ENTER is keyup
-  console.log("la parola è:" , txt); // if txt is empty no message will be sent
+    if(key == 13 && txt){ //trigger the function when ENTER is keyup
+    console.log("la parola è:" , txt); // if txt is empty no message will be sent
 
-  input.val(''); //clean the value in the input space
+    input.val(''); //clean the value in the input space
 
-  // Once getting input value we need to Send our message and receive an automatic automatic Reply
+    // Once getting input value we need to Send our message and receive an automatic automatic Reply
 
-  // "sendNewMessage function" needs two arguments (the input-text-value and the tag-class for the style)
-  sendNewMessage(txt,'right_msg'); //invoke a new function NOT ANONYMOUS
+    // "sendNewMessage function" needs two arguments (the input-text-value and the tag-class for the style)
+    sendNewMessage(txt,'right_msg'); //invoke a new function NOT ANONYMOUS
 
-  // Now we need an automatic reply - call setTimeout with anonymous funcion;
-  // setTimeout(function(){ sendNewMessage('Va benissimo', 'left_msg');},2000);
-  setTimeout(function(){
-    sendNewMessage('Va benissimo!','left_msg');
-  } ,2000);
+    // Now we need an automatic reply - call setTimeout with anonymous funcion;
+    // setTimeout(function(){ sendNewMessage('Va benissimo', 'left_msg');},2000);
+    setTimeout(function(){
+      sendNewMessage('Va benissimo!','left_msg');
+    } ,2000);
   }
 }
 
@@ -95,14 +92,12 @@ function sendNewMessage(txt, type){
   console.log("type",type);
   console.log("sendNewMessage", txt);
 
-  // The .find() and .children() methods are similar, but children only travels a single level down the DOM tree
   template.addClass(type);
 
   template.find('.content').text(txt);//search the element with class "content" overwriting the text
   template.find('#date').text(getNewTime()); //search the element with class "date" overwriting the text  with the current date
-
+  // .find() Vs .children() methods:  children only travels a single level down the DOM tree
   target.append(template);
-
 }
 
 // SendMessage -\--valueFromInput-\--sendNewMessage-\--getNewTime-----
@@ -152,11 +147,11 @@ function init(){
   sendMessageFunction(); //function to Send Message and receive a reply
   sortContactsFunction(); //function to sort Contact from the sidenav
 
-  viewContactMessage();
+  viewContactMessage(); //function to print messages on screen using the correct style - use clone()
 
-  addListenerMessage();
+  selectChatMessage(); //function to select generated messages (on.() method)
 
-  deleteMessage();
+  deleteChatMessage();  //function to delete message using dropdown menu
 }
 
 // 1) Document Ready-----

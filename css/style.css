@@ -2,8 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* color:#a8dadc; */
-  /* color:rgba(188, 189, 197,.4); */
 }
 
 @font-face {
@@ -116,7 +114,6 @@ aside #user_src_contact .src_bar{
 
   border-radius: 20px;
   background-color: white;
-
 }
 
 aside #user_src_contact .src_bar > i{
@@ -240,20 +237,6 @@ aside #contacts{
   display:block;
 }
 
-/* #chat_board > div:nth-of-type(4){
-  color: red;
-  min-height: 80px;
-  border: 1px solid red;
-}
-
-#chat_board  .chat_board_section{
-  color: blue;
-  min-height: 80px;
-  border: 1px solid black;
-} */
-
-
-
 /* Footer section ----------------------------------------*/
 footer input{
   padding-left: 20px;
@@ -274,7 +257,6 @@ footer .far , footer .fas, footer .fa{
 }
 
 /* Chat Message TEMPLATE STYLE */
-
 
 .bubble .dropdown_parent{
   position: relative;
@@ -311,7 +293,6 @@ footer .far , footer .fas, footer .fa{
   line-height: 20px;
   padding-bottom: 10px;
   float: left;
-  /* background-color: yellow; */
 }
 
 .bubble .date{
@@ -344,8 +325,6 @@ footer .far , footer .fas, footer .fa{
   display:none;
 }
 
-
-
 .subtitle{
   font-size: 14px;
   color: grey;
@@ -359,5 +338,10 @@ footer .far , footer .fas, footer .fa{
 
 i:hover{
   color:black;
+  cursor: pointer;
+}
+
+.delete:hover{
+  background-color: #D3EEEE;
   cursor: pointer;
 }
