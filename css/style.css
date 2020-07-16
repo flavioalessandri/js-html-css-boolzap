@@ -229,7 +229,15 @@ aside #contacts{
 }
 
 .contact_list_wrapper.active{
-  background-color: lightgreen;
+  background-color: #D3EEEE;
+}
+
+#chat_messages .chat_personal{
+  display:none;
+}
+
+#chat_messages .chat_personal.active{
+  display:block;
 }
 
 /* #chat_board > div:nth-of-type(4){

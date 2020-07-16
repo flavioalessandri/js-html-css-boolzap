@@ -46,7 +46,7 @@
            <div class="overflow-content">
 
              <!-- User Contact - Icon Name and Subtitle -->
-             <div class="contact_list_wrapper">
+             <div class="contact_list_wrapper" data-id="01">
                <div class="contact_list centratura">
                  <div class="contact_icon">
                    <img class="img_contact" src="img/stan2.png" alt="stan">
@@ -60,13 +60,13 @@
              </div>
 
             <!-- User Contact - Icon Name and Subtitle -->
-             <div class="contact_list_wrapper">
+             <div class="contact_list_wrapper" data-id="02">
                <div class="contact_list centratura">
                  <div class="contact_icon">
                    <img class="img_contact" src="img/vodooLady2.png" alt="Vodoo">
                  </div>
                  <div class="contact_name">
-                   <h3 class="name">Vodoo Lady</h3>
+                   <h3 class="name">Vodoo</h3>
                    <p class="subtitle">Non poteva essere altrimenti</p>
                  </div>
                  <span class="last_access">15:20</span>
@@ -74,7 +74,7 @@
              </div>
 
               <!-- User Contact - Icon Name and Subtitle -->
-             <div class="contact_list_wrapper active" data-info="LeChuck">
+             <div class="contact_list_wrapper active" data-id="03">
                <div class="contact_list centratura">
                  <div class="contact_icon">
                    <img class="img_contact" src="img/lechuck.png" alt="lechuck">
@@ -88,7 +88,7 @@
              </div>
 
              <!-- User Contact - Icon Name and Subtitle -->
-            <div class="contact_list_wrapper">
+            <div class="contact_list_wrapper" data-id="04">
               <div class="contact_list centratura">
                 <div class="contact_icon">
                   <img class="img_contact" src="img/monkey.png" alt="monkey">
@@ -102,7 +102,7 @@
             </div>
 
             <!-- User Contact - Icon Name and Subtitle -->
-           <div class="contact_list_wrapper">
+           <div class="contact_list_wrapper" data-id="05">
              <div class="contact_list centratura">
                <div class="contact_icon">
                  <img class="img_contact" src="img/monkey_three.png" alt="monkeythree">
@@ -116,7 +116,7 @@
            </div>
 
             <!-- User Contact - Icon Name and Subtitle -->
-             <div class="contact_list_wrapper">
+             <div class="contact_list_wrapper" data-id="06">
                <div class="contact_list centratura">
                  <div class="contact_icon">
                    <img class="img_contact" src="img/elaine2.png" alt="elaine">
@@ -130,7 +130,7 @@
              </div>
 
              <!-- User Contact - Icon Name and Subtitle -->
-             <div class="contact_list_wrapper">
+             <div class="contact_list_wrapper" data-id="07">
               <div class="contact_list centratura">
                 <div class="contact_icon">
                   <img class="img_contact" src="img/herman2.png" alt="herman">
@@ -144,7 +144,7 @@
              </div>
 
              <!-- User Contact - Icon Name and Subtitle -->
-             <div class="contact_list_wrapper">
+             <div class="contact_list_wrapper" data-id="08">
               <div class="contact_list centratura">
                 <div class="contact_icon">
                   <img class="img_contact" src="img/pirate.png" alt="pirate">
@@ -188,56 +188,63 @@
       <main id="chat_messages" class= "centratura">
         <!-- Section container need to scroll! -->
         <div class="overflow">
-          <div id="chat_board" class="overflow-content">
-            <!-- MESSAGE FROM CONTACT -->
-            <div class="bubble left_msg">
-              <div class="dropdown_parent">
-                <span class="content">
-                  Contatto
-                </span>
-                <div class="date">11:30 </div>
-                <i class="fas fa-chevron-down"></i>
-                <!-- DropDown Menu -->
-                <div class="dropdown hidden">
-                  <div class="delete"> Modify Section </div>
-                  <div class="modify"> Delete Message </div>
-               </div>
+
+          <div class="chat_personal" data-id="01">
+            <div class="overflow-content"></div>
+          </div>
+          <div class="chat_personal" data-id="02">
+            <div class="overflow-content"></div>
+          </div>
+          <div class="chat_personal active" data-id="03">
+            <div class="overflow-content">
+              <!-- MESSAGE FROM CONTACT -->
+              <div class="bubble left_msg">
+                <div class="dropdown_parent">
+                  <span class="content">
+                    Contatto
+                  </span>
+                  <div class="date">11:30 </div>
+                  <i class="fas fa-chevron-down"></i>
+                  <!-- DropDown Menu -->
+                  <div class="dropdown hidden">
+                    <div class="delete"> Modify Section </div>
+                    <div class="modify"> Delete Message </div>
+                 </div>
+                </div>
+              </div>
+              <!-- MY MESSAGE  -->
+              <div class="bubble right_msg">
+                <div class="dropdown_parent">
+                  <span class="content">
+                    Ciao ragazzi, sono stato molto bene
+                  </span>
+                  <div class="date">11:30 </div>
+                  <i class="fas fa-chevron-down"></i>
+                  <!-- DropDown Menu -->
+                  <div class="dropdown hidden">
+                    <div class="delete"> Modify Section </div>
+                    <div class="modify"> Delete Message </div>
+                 </div>
+                </div>
               </div>
             </div>
-            <!-- MY MESSAGE  -->
-            <div class="bubble right_msg">
-              <div class="dropdown_parent">
-                <span class="content">
-                  Ciao ragazzi, sono stato molto bene
-                </span>
-                <div class="date">11:30 </div>
-                <i class="fas fa-chevron-down"></i>
-                <!-- DropDown Menu -->
-                <div class="dropdown hidden">
-                  <div class="delete"> Modify Section </div>
-                  <div class="modify"> Delete Message </div>
-               </div>
-              </div>
-            </div>
-<!--
-            <div class="chat_board_section">
-              <div class="overflow-content">
-                <span>sa</span>
-                <span>sa</span>
-                <span>sa</span>
-               </div>
-            </div>
+          </div>
+          <div class="chat_personal" data-id="04">
+            <div class="overflow-content"></div>
+          </div>
+          <div class="chat_personal" data-id="05">
+            <div class="overflow-content"></div>
+          </div>
+          <div class="chat_personal" data-id="06">
+            <div class="overflow-content"></div>
+          </div>
+          <div class="chat_personal" data-id="07">
+            <div class="overflow-content"></div>
+          </div>
+          <div class="chat_personal" data-id="08">
+            <div class="overflow-content"></div>
+          </div>
 
-            <div class="chat_board_section">
-              <div class="overflow-content">
-                <span>sa</span>
-                <span>sa</span>
-                <span>sa</span>
-               </div>
-            </div> -->
-
-
-          </div><!-- End of overflow-content -->
         </div><!-- End of overflow-->
       </main>
 

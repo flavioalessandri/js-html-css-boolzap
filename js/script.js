@@ -1,42 +1,35 @@
 function viewContactMessage(){
-  var contact_list = $('.contact_list_wrapper');
-  contact_list.click(function(){
-    contact_list.removeClass('active');
+  var sidebar_contact_list = $('.contact_list_wrapper');
+
+  sidebar_contact_list.on("click",function() {
+
+    sidebar_contact_list.removeClass('active');
     $(this).addClass('active');
-    // find Image name and COntact name of the items
-    var name = $(this).find('.name').text();
+
+    // find Icon name and Contact name of the item selected
+    var keyName = $(this).find('.name').text().toLowerCase();
     var icon = $(this).find('.img_contact').attr('src');
-    console.log("icon", icon);
 
-    // Assign a "data-info: name value" to the selected contact_list_wrapper item
-    $(this).attr('data-info', name );//dataset.info
-    console.log("l'elemento nella barra laterale ha come data-info il nome : ", name);
-    var chat_board_section = $('.chat_board_section');
+    //MESSAGE BUBBLE SECTION
+    var id = $(this).attr('data-id');
+    var general_chat = $('#chat_messages .chat_personal');
+    general_chat.removeClass('active');
+    // add "active" class to the main chat sections where bubbles are!
+    var this_chat= $('#chat_messages .chat_personal[data-id="'+ id + '"]').addClass('active');
+    this_chat.attr('data-info', keyName );
 
-  // CHANGE the Top Main Section "Icon and Name" of  with the selected item
+    // assegna un "data-info" al contatto selezionato nella SideBar
+    //SIDEBAR SECTION - Assign a "data-info: name value" to the selected contact_list_wrapper item
+    $(this).attr('data-info', keyName );//dataset.info
+    console.log("l'elemento nella barra laterale ha come data-info il nome : ", keyName);
+
+    // cambia l'immagine e il nome nella barra in alto delle info contatto
+    // TOPBAR SECTION - CHANGE the Top Main Section "Icon and Name" of  with the selected item
     var selected_contact_name = $("#chat_selected_contact").find('.name').text(name);
     var selected_contact_img = $("#chat_selected_contact").find('.img_contact').attr('src', icon);
 
-    console.log(selected_contact_img);
-    console.log(selected_contact_name);
-
-    var messaggi_nella_chat = $('#chat_board .bubble').attr('data-info', name);
-
-    if($('#chat_board .bubble').find(messaggi_nella_chat) == true){
-      messaggi_nella_chat.show();
-    } else{
-      $('#chat_board .bubble').hide();
-    }
-
-
-    console.log("messaggi_nella_chat ",messaggi_nella_chat );
-
-
   })
-
 }
-
-
 
 // --------------------------------------------------------------
 // SendMessage Function-----------------------------
@@ -66,7 +59,9 @@ function valueFromInput(event){ //this function need the event object
 
   // Now we need an automatic reply - call setTimeout with anonymous funcion;
   // setTimeout(function(){ sendNewMessage('Va benissimo', 'left_msg');},2000);
-  setTimeout(sendNewMessage('Va benissimo', 'left_msg'),2000);
+  setTimeout(function(){
+    sendNewMessage('Va benissimo!','left_msg');
+  } ,2000);
   }
 }
 
@@ -75,7 +70,7 @@ function sendNewMessage(txt, type){
 
   var template=$('#messages_structure > div').clone(); //get the CLONE of the DIV under TEMPLATE (hidden folder)
   // when we use clone() we can modify the element copy without touch the original
-  var target = $('#chat_board');
+  var target = $('.chat_personal.active > .overflow-content');
 
   console.log("type",type);
   console.log("sendNewMessage", txt);
@@ -83,13 +78,9 @@ function sendNewMessage(txt, type){
   // The .find() and .children() methods are similar, but children only travels a single level down the DOM tree
   template.addClass(type);
 
-
-  var data_key=$('.contact_list_wrapper.active').attr('data-info');
-  console.log("data_key", data_key);
-
   template.find('.content').text(txt);//search the element with class "content" overwriting the text
   template.find('#date').text(getNewTime()); //search the element with class "date" overwriting the text  with the current date
-  template.attr('data-info', data_key);
+
   target.append(template);
 
 }
