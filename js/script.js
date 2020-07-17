@@ -77,8 +77,8 @@ function valueFromInput(event){ //this function need the event object
     // Now we need an automatic reply - call setTimeout with anonymous funcion;
     // setTimeout(function(){ sendNewMessage('Va benissimo', 'left_msg');},2000);
     setTimeout(function(){
-      sendNewMessage('Va benissimo!','left_msg');
-    } ,2000);
+      sendNewMessage(randomReply(),'left_msg');
+    } ,1000);
   }
 }
 
@@ -98,12 +98,36 @@ function sendNewMessage(txt, type){
   template.find('#date').text(getNewTime()); //search the element with class "date" overwriting the text  with the current date
   // .find() Vs .children() methods:  children only travels a single level down the DOM tree
   target.append(template);
+
+  var chat_selected_contact= $('#chat_selected_contact');
+  var contact_active = $('#contacts .contact_list_wrapper.active');
+  contact_active.find('.subtitle').text(txt);
+  contact_active.find('.last_access').text(getNewTime());
+  chat_selected_contact.find('.last_access').text(getNewTime());
+
+
 }
 
 // SendMessage -\--valueFromInput-\--sendNewMessage-\--getNewTime-----
 function getNewTime(){
   var data = new Date();
-  return data.getHours() + ":" + data.getMinutes();
+  var minutes = (data.getMinutes()<10?'0':'') + data.getMinutes();
+  return data.getHours() + ":" + minutes;
+}
+
+// SendMessage - Generated random reply messages
+function randomReply(){
+  console.log("randomReply");
+  var lista = $('#chat_random_reply.template>ul>li').clone();
+  return lista[randomIndexReply()].textContent;
+}
+
+function randomIndexReply(){
+  var min = 0;
+  var max = $('#chat_random_reply.template>ul>li').length;
+  console.log("massimo", max);
+  var numero = Math.floor(Math.random()* (max-min)+min);
+  return numero;
 }
 
 // SendMessage -\- upperCaseKeydown----------
