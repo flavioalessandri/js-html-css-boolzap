@@ -28,6 +28,7 @@ function viewContactMessage(){
     var name = $(this).find('.name').text();
     var keyName = $(this).find('.name').text().toLowerCase();
     var icon = $(this).find('.img_contact').attr('src');
+    var last_access = $(this).find('.last_access').text();
 
     //MESSAGE BUBBLE SECTION
     var this_chat_attr= $('#chat_messages .chat_personal.active').attr('data-info');
@@ -46,7 +47,7 @@ function viewContactMessage(){
       $('#chat_messages .chat_personal[data-info="'+ keyName + '"]').addClass('active');
 
     }else if(elemento.length == 0){
-      alert( " This is your first conversation with : "+ name +" ! Create a new chat-container");
+      console.log( " This is your first conversation with : "+ name +" ! Create a new chat-container");
       $('#chat_messages .chat_personal').removeClass('active');
       chat_container_keyName.addClass('active');
       $('#chat_messages .overflow').append(chat_container_keyName);
@@ -117,15 +118,21 @@ function sendNewMessage(txt, type){
   template.find('.content').text(txt);//search the element with class "content" overwriting the text
   template.find('#date').text(getNewTime()); //search the element with class "date" overwriting the text  with the current date
   // .find() Vs .children() methods:  children only travels a single level down the DOM tree
-  $('#contacts .contact_list_wrapper.active').find('.subtitle').text(txt);
   target.append(template);
+
+  var chat_selected_contact= $('#chat_selected_contact');
+  var contact_active = $('#contacts .contact_list_wrapper.active');
+  contact_active.find('.subtitle').text(txt);
+  contact_active.find('.last_access').text(getNewTime());
+  chat_selected_contact.find('.last_access').text(getNewTime());
 
 }
 
 // SendMessage -\--valueFromInput-\--sendNewMessage-\--getNewTime-----
 function getNewTime(){
   var data = new Date();
-  return data.getHours() + ":" + data.getMinutes();
+  var minutes = (data.getMinutes()<10?'0':'') + data.getMinutes();
+  return data.getHours() + ":" + minutes;
 }
 
 // SendMessage - Generated random reply messages

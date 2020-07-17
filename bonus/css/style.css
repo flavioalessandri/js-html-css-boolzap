@@ -5,14 +5,14 @@
 }
 
 @font-face {
-  font-family: 'Basier Circle Regular';
+  font-family:MyFirstFont;
   font-style: normal;
   font-weight: normal;
-  src: local('Basier Circle Regular'), url('../font/BasierCircle-Regular.woff') format('woff');
+  src: url('../font/BasierCircle-Regular.woff') format('woff');
 }
 
 body{
-  font-family: 'Basier Circle Regular';
+  font-family: MyFirstFont, sans-serif;
   font-weight: normal;
   font-size: 16px;
 }
@@ -162,6 +162,7 @@ aside #contacts{
 .contact_list .contact_name{
   flex-grow: 1;
   padding-left: 20px;
+  line-height: 25px;
 }
 
 /* contenitore FLEX generale, elementi distribuiti in colonna */
@@ -176,11 +177,16 @@ aside #contacts{
 /* PRIMO ITEM DEL CONTAINER FLEX  parte che non vogliamo far scrollare */
 #chat_selected_contact{
   font-weight: bold;
+  line-height: 25px;
 
   width:100%;
   min-height: 80px;
 
   background-color: rgb(234,234,234);
+}
+
+#chat_selected_contact span{
+  color:black;
 }
 
 /* SECONDO ITEM DEL FLEX  parte che non vogliamo far scrollare */
@@ -207,8 +213,8 @@ aside #contacts{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  line-height: 25px;
 
-  padding-top: 20px;
   line-height: 20px;
   color: black;
 }
@@ -271,7 +277,7 @@ footer .far , footer .fas, footer .fa{
   text-align: left;
   align-self: flex-end;
 
-  max-width: 40%;
+  max-width: 280px;
   background-color: lightgreen;
 
   border-radius: 15px;
@@ -281,7 +287,7 @@ footer .far , footer .fas, footer .fa{
   align-self: flex-start;
   text-align: left;
 
-  max-width: 40%;
+  max-width: 280px;
 
   border-radius: 15px;
   background-color: rgb(247, 246, 242);
